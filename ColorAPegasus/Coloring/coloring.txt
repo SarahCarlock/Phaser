@@ -1,0 +1,25 @@
+Learn Phaser Basics: Color a Pegasus
+Coloring
+8 min
+
+We’ve been given the basic layout of our Game — it’s up to us, the game developer, to provide the part of our game that makes it playable. We need to create the mechanics of the game, the part that makes it more than a picture of a pegasus.
+Instructions
+Checkpoint 1 Passed
+
+1.
+
+In game.js find the create() function. Near line 10 there is a for loop where we iterate over each shape in pegasusShapes. Inside that for loop some commands have been written to describe the presentation of the pegasus itself. This is where we set the strokeColor and the lineWidth of the shape, among other things. We want to follow this up by defining the shape’s interactability.
+
+Make each shape in this loop interactive by calling .setInteractive() on it.
+Checkpoint 2 Passed
+
+2.
+
+When one of the shapes is clicked on we should update its fillColor to be the active color that we keep track of in our gameState. We’ll work on updating that active color later, but for now we start with a default in gameState.selectedColor.
+
+Start by creating a handler for each shape on 'pointerup'.
+Checkpoint 3 Passed
+
+3.
+
+Inside our 'pointerup' callback handler, update this.fillColor (the fill color of the shape that’s been clicked) to be gameState.selectedColor.

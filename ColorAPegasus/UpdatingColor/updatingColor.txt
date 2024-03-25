@@ -1,0 +1,51 @@
+Learn Phaser Basics: Color a Pegasus
+Updating Color
+11 min
+
+Now that we can change the color of our pegasus, let’s get to work on making that palette selector functional. When we click on a color, we want that to become the selected color.
+
+We need to use a third argument to our event handler method .on(), where we give extra context to be used within our event handler. We want each circle in our color palette, paletteCircle, to be aware of the color that it indicates so that it can update gameState.selectedColor. The syntax for our event context is this:
+
+// important number we want to use
+const importantNumber = 10;
+
+// pointer event handler where we want
+// to use our important number
+gameObject.on('pointerup', function() {
+  this.gameObject.x = this.importantNumber
+}, { importantNumber, gameObject });
+
+Above we created importantNumber to be some important piece of data that we wanted to use inside our event handler. We call gameObject.on('pointerup') to create an event handler for the gameObject click event.
+
+Inside the event handler, this refers to our gameObject unless the third argument is present, which is the context. Since we provide a third argument, this now has the properties .importantNumber and .gameObject which are accessed using this.importantNumber and this.gameObject.
+
+In the code above we update the x value of gameObject to be whatever value is inside of importantNumber.But since this doesn’t refer to the gameObject anymore, we need to pass that into the context given by that third argument as well.
+
+As we continue to create games of greater complexity, knowing the value of this makes our game development easier. In this case, by explicitly providing a third argument in our event handler we know exactly what this is. Therefore, we’ve also improved the readability of our code because other developers would also know what this is within our handler. When we, and other developers on our team, understand our code it makes debugging or adding new features quicker and smoother.
+Instructions
+Checkpoint 1 Passed
+
+1.
+
+We want to use our palette circles at the bottom to update the color when we click on them. In game.js, find the part of our create() function where we iterate over each of the palette circles (you should see a comment at or near line 38).
+
+The first thing we should do is set each palette circle as interactive.
+Checkpoint 2 Passed
+
+2.
+
+Now let’s add the actual click handler! For each paletteCircle create an event handler for the 'pointerup' event. Let’s start by making an empty one and add to it as we need.
+Checkpoint 3 Passed
+
+3.
+
+Now we want to provide the color we define inside the loop to the handler, let’s add that as a context by passing it in an object as the third argument to .on().
+
+Pass { color } as the third argument to paletteCircle.on() so that we can use it within the handler.
+Checkpoint 4 Passed
+
+4.
+
+Now that we have all the pieces, let’s use this handler to update the selected color in our gameState.
+
+Inside the body of our event handler, update gameState.selectedColor to be the new color we passed as context.

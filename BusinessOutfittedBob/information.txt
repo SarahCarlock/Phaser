@@ -1,0 +1,150 @@
+Phase.js cheat sheet https://www.codecademy.com/courses/learn-phaser/articles/phaser-quick-guide
+
+Create Video Games with Phaser.js
+Business Outfitted Bob
+
+There are several files with starter code in a project folder for a currently unfinished and unplayable browser-based game. This game will use JavaScript and more specifically, a library, called Phaser.js. Phaser makes it easy and fast to create games like Business Outfitted Bob by bundling together JavaScript code needed for games so you can focus on building other, more important parts of your project. This will be your first time seeing Phaser code but you will not need to know it or use it to complete this project.
+
+You will need to draw on what you’ve learned so far about JavaScript to complete Business Outfitted Bob:
+
+    Declaration of global variables and keywords like const and let
+    Changing the values of variables
+    Conditional statements using if, else if, and else
+
+Once the missing JavaScript code has been added in certain files, all the features of the game will be complete and you will be able to play the game.
+Tasks
+20/20 complete
+Mark the tasks as complete by checking them off
+Getting Started
+
+1.
+
+Before starting, we encourage you to get familiar with the structure of the project folder if you haven’t already. Click on the folder icon and then click on the various files of the project to view them in the text editor.
+
+These files contain a mix of JavaScript and Phaser.js code that make up most of the project. There are several files representing different scenes of Business Outfitted Bob: StartScene.js, GameScene.js, EndScene.js.
+
+StartScene.js contains the code that displays the starting screen to the user before they play the game. The code in GameScene.js displays the game as well as contains the logic for controlling Bob’s movement, scoring points and ending the game. The game.js file contains the game’s settings and index.html has the HTML we need to have our game appear in a browser.
+
+There are comments in all the files to help you understand what the code is doing in the game if you’re curious but it isn’t necessary to know anything about the existing code to successfully finish this project. For now, take a moment to look over how the code is separated and organized in files (now imagine all that code on a single file - the horror!).
+
+To finish this step, return to GameScene.js and EndScene.js. These files are the only files you will need to add code to. Familiarize yourself with the empty spaces in the files where you will be placing your code, such as the inside of update() in the GameScene.js file.
+
+Creating Variables
+
+2.
+
+In order to play our game, we’ll need to set a few variables at the top of the GameScene.js file. This allows us to store information about parts of our game as values so we can use them later.
+
+Create a variable named score at the top of the GameScene.js file and set it to 0. We’ll use this variable to track Bob’s earnings during the game.
+
+Remember to save your code once you’ve made this (and any other) change.
+3.
+
+Create moneyMultiplier, a constant variable that makes sure Bob has earnings that are a multiple of 100 on a new line after score. Set moneyMultiplier to 100.
+4.
+
+Create a constant variable, speed on a new line under moneyMultiplier. Assign it the value 1.
+
+Moving Bob
+
+5.
+
+Let’s give Bob the ability to move so he can start collecting money and increase his earnings.
+
+We want to move Bob in 4 directions: up, down, right, and left. This should happen when we press the up, down, right and left arrow keys of the keyboard.
+
+Inside of the update() method towards the bottom of the file, locate the line where we declared a constant variable called cursors. This refers to several keys, including the arrow keys of the keyboard. Once, you’ve found this line, move on to the next step.
+6.
+
+Next, we need to store the arrow keys for the 4 directions as variables, separately.
+
+Start with the right arrow. Under the line declaring cursors, create a constant variable called rightArrow and assign it cursors.right.isDown.
+
+This is Phaser syntax that will let us check if the right arrow key is being pressed by the player.
+7.
+
+On a new line beneath rightArrow, create another constant called leftArrow and store cursors.left.isDown in it.
+8.
+
+On a new line beneath leftArrow, create another constant called upArrow and store cursors.up.isDown in it.
+9.
+
+One more key to go! On a new line beneath upArrow, create our last constant for arrow keys, downArrow, and store cursors.down.isDown in it.
+10.
+
+Great! We now know which keys we have to watch in case a player presses them. Let’s add code to move the Bob character across the screen if one of these arrow keys is pressed.
+
+Under the constant variables you created in update() and on a new line, create a conditional if statement that checks if rightArrow is true. If it is, we’ll run one of the helper functions given to us to move him in the correct direction.
+
+Inside of our if statement place the code moveBobRight(). This will move the Bob sprite to the right across the screen. (This is also an example of a function call, which you’ll learn more about in a future lesson.)
+11.
+
+Check that the leftArrow key has been pressed by chaining an else if statement to the if statement you created in the previous step. Add the code moveBobLeft() inside of our else if statement.
+12.
+
+Check that the upArrow key has been pressed by chaining an else if statement to the else if statement you created in the previous step. Add code to move the Bob sprite up, moveBobUp().
+13.
+
+Check that the downArrow key has been pressed by chaining an else if statement to the if statement you created in the previous step. Add code to move the Bob sprite down, moveBobDown().
+
+Once this step is finished, test that Bob can move in all 4 directions by playing the game.
+
+Collision Detection
+
+14.
+
+We’ll need to check if Bob has touched walls. We can track where Bob is with gameState.player (this is Phaser related syntax). By storing gameState.player.x in bobXCoord, we can access Bob’s x coordinate.
+
+Below the code that moves the Bob sprite in update(), create a constant variable called bobXCoord and assign it Bob’s x coordinate, gameState.player.x.
+15.
+
+Just as gameState.player.x gets Bob’s x coordinate, gameState.player.y gets Bob’s y coordinate. Create a constant variable called bobYCoord and assign it Bob’s y coordinate , gameState.player.y.
+16.
+
+With those two constants, we can now check if Bob has touched the left or right walls of the game. The left wall is located at 32 from the left and the right wall is located 448 pixels from the left.
+
+On a new line below your previous code, write an if statement that checks if Bob’s x coordinate, bobXCoord, is less than or equal to 32 OR if Bob’s x coordinate is greater than or equal to 448. Leave the inside of the if statement blank for now.
+17.
+
+Add another if statement under the code you wrote in the previous step that checks if Bob is touching the top and bottom walls using Bob’s y coordinate, bobYCoord. The top wall is located 32 pixels from the top of the game screen and the bottom wall is 568 pixels from the top of the game screen.
+
+In this conditional, check if Bob’s y coordinate is less than or equal to 32 OR greater than or equal to 568. Like the other if statement you created in this step, leave the inside of it blank.
+18.
+
+If Bob touches a wall we want to end the game.
+
+Inside each of the if statements we just created, call the endGame method inside each of the if statements by adding the code this.endGame() inside each of the conditionals.
+
+Before you move on, check your work by touching each of the walls with Bob and making sure that the Game Over screen is displayed.
+
+Reset Variables
+
+19.
+
+Our game is almost done!
+
+However, you may have noticed a problem if you’ve played the game a few times. Bob’s earnings do not reset to $0 in new games.
+
+In the EndScene.js file inside of the create() method reset the score variable to 0.
+
+Check your work by playing the game and see if the score resets.
+
+Going Further
+
+20.
+
+That’s it – you’ve successfully finished essential features of a Phaser.js game using JavaScript. Great work!
+
+If you finished the game and are curious about the JavaScript library we used to make Business Outfitted Bob, Phaser.js, you can take a look at the Phaser cheatsheet here.
+
+If you want to challenge yourself, see what additional changes and features you can add to the game. For example, try the following:
+
+Change the speed Bob moves. Bob should move faster as he collects more money and his earnings increase.
+
+Add code to GameScene.js so that when Bob and the money sprite overlap speed will increment by 0.1.
+
+What changes would you have to make when declaring the speed variable to make this work?
+
+We can add code to increase speed inside of the create() after this.physics.add.overlap(gameState.player, gameState.money, () => {.
+
+Since we will be changing the value of speed, we will have to change it from a constant to another type of variable that can. Try declaring speed with let.

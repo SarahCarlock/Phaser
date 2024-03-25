@@ -1,0 +1,32 @@
+Learn Phaser Basics: Color a Pegasus
+Indicating Palette Selection
+8 min
+
+Our game is a lot more playable now that people know what they’re clicking on, but how can we keep track of what color is currently active? By adding relevant hover events to our paletteCircles!
+Instructions
+Checkpoint 1 Passed
+
+1.
+
+We know that a paletteCircle has been clicked before it becomes active (except for the default), so we only need to write a 'pointerout' handler for our paletteCircles to highlight the one that’s been selected.
+
+Create a 'pointerout' handler for each paletteCircle. Give it a context that lets it access not just paletteCircle but also color.
+Checkpoint 2 Passed
+
+2.
+
+We want our default behavior to be for the event to be setting the strokeColor to the default black.
+
+Start off our event handler by setting the paletteCircle.strokeColor to black (0x000000).
+Checkpoint 3 Passed
+
+3.
+
+Next we want to check if our current color is the same color as gameState.selectedColor.
+
+Write an if statement comparing to our selected color with this.color.
+Checkpoint 4 Passed
+
+4.
+
+If the color of the paletteCircle is the same color as gameState.selectedColor then let’s give our selected paletteCircle a nice gold (0xffc836) outline.

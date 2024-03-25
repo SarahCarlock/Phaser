@@ -1,0 +1,32 @@
+Learn Phaser Basics: Color a Pegasus
+Indicating Selections
+6 min
+
+Coloring the pegasus is great, the “playing” aspect of our game is figured out, but we need to consider our presentation. If we want someone playing our game to know where to click and how to actually color in the pegasus, we’re going to need to work on the interface.
+
+You may have noticed that clicking on some parts of the pegasus don’t perfectly line up with the shapes. This has to do with how the shapes are stacked on top of each other. There’s a lot of ways to fix that potentially, but a solution that will work well is giving the person playing the game some insight into what part of the Pegasus will be colored after they click.
+
+We’re going to use the screen blend mode to indicate which part of the Pegasus is going to be selected. Blend modes dictate how a filled-in shape interacts with the other shapes visible, somewhat like changing the opacity and color of the shape. The result will be that our highlighted section will turn semi-transparent and white with a white outline.
+Instructions
+Checkpoint 1 Passed
+
+1.
+
+Inside our for loop that iterates over our shapes, create a 'pointerover' event for each shape.
+Checkpoint 2 Passed
+
+2.
+
+Inside our new 'pointerover' event change the blend mode of our shape by calling this.setBlendMode(Phaser.BlendModes.SCREEN).
+Checkpoint 3 Passed
+
+3.
+
+Perfect, but the parts of the pegasus don’t stop being white and spooky looking. We need to add in a 'pointerout' event handler that sets the shapes blend mode back to normal after we stop hovering over it.
+
+First create the 'pointerout' event handler.
+Checkpoint 4 Passed
+
+4.
+
+Then, inside your 'pointerout' event handler, use this.setBlendMode() to set the shape‘s blend mode to Phaser.BlendModes.NORMAL.

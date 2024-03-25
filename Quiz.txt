@@ -1,0 +1,26 @@
+QUIZ
+
+Question 1
+What command makes a new Phaser Game?
+    new Phaser.Game()
+    We call Phaser.Game() with new in order to create a new instance.
+
+Question 2
+What function do you call to create a circle GameObject?
+    this.add.circle() creates a new GameObject that is a circle.
+
+Question 3
+What steps are required for rendering an image (like a background image) in Phaser?
+    Load the image in preload() using this.load.image(). Create the GameObject in create() using this.add.image().
+    preload() is for loading the asset, create() is for making the GameObject itself.
+
+Question 4
+Why do we maintain game state in a global variable?
+    So we can refer to the same GameObjects across different Phaser Scene methods.
+    We can use our game’s state to communicate between create() and update() methods, for instance.
+
+Question 5
+What code goes in the update() function for a Phaser scene?
+    Code that runs  every frame the Phaser Game is in focus.
+    This code might, for instance, detect keyboard interaction or just move a GameObject.
+
