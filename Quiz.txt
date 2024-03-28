@@ -24,3 +24,109 @@ What code goes in the update() function for a Phaser scene?
     Code that runs  every frame the Phaser Game is in focus.
     This code might, for instance, detect keyboard interaction or just move a GameObject.
 
+QUIZ
+
+Question 1
+Complete the code snippet to add an event that loops continuously and calls the function increaseScore every 300 milliseconds.
+
+function create() {
+  this.time.addEvent({
+    delay: 
+
+300,
+    callback: 
+
+increaseScore,
+    callbackScope: this,
+    
+
+loop: 
+
+true,
+  });
+}
+
+Question 2
+What is the difference of a sprite created with this.add.sprite() and one created using this.physics.add.sprite()?
+    The one created using this.physics.add.sprite() is affected by the game's physics and the one created using this.add.sprite() is not.
+
+Question 3
+How would this.input.keyboard.createCursorKeys() be useful?
+    It returns a Cursor object that can be used to detect certain keyboard input.
+     It allows us to check if the arrow keys, spacebar, or the shift buttons are pressed.
+    
+Question 4
+What is the purpose of a Collider object?
+    A Collider object checks GameObjects come into contact with each other and determines their interact.
+        Can be used with Group objects, single sprites, or arrays of sprites!
+    
+Question 5
+Given the following config object, how would a sprite created by this.physics.add.sprite() behave in the game?
+
+const config = {
+  type: Phaser.AUTO,
+  physics: {
+    default: 'arcade',
+    arcade: {
+      gravity: { y: -500 },
+      enableBody: true,
+    }
+  }
+}
+    By default, the sprite will go upwards.
+    Since the gravity property has a value of {y: -500}, the create sprite goes towards the top of the screen.
+
+Question 6
+What does enemySprite.destroy() do?
+    It removed enemySprite form the game.
+
+Question 7
+What is the purpose of a Group object?
+    A Group object is used to create and maintain multiple sprites as a collection.
+
+Question 8
+What method can be called on a GameObject to keep it from going off-screen?
+    .setCollideWorldBounds(true)
+    will prevent a GameObject from leaving the screen. 
+
+Question 9
+Given the following code snippet, what happens if sprite1 and sprite2 collide?
+
+this.physics.add.collider(sprite1, sprite2, (sprite1, sprite2) => {
+  sprite1.setVelocityX(500);
+  sprite2.setVelocityX(-500);
+});
+    sprite1 will go to the RIGHT and sprite2 will go to the LEFT.
+    Calling sprite1.serVelocityX() with a positive argument causes sprite1 to go right. The opposite is true for sprite2.
+
+Question 10
+Complete the code snippet so that when:
+
+    the up arrow key is pressed, heroSprite moves upward.
+    the down arrow key is pressed, heroSprite moves downward.
+    the spacebar key is pressed, the game restarts.
+
+function update() {
+  const cursors = this.input.
+
+keyboard.createCursorKeys();
+  
+  if (cursors.up.isDown) {
+    heroSprite.
+
+setVelocityY(
+
+-500);
+  } else if (cursors.down.isDown) {
+    heroSprite.
+
+setVelocityY(
+
+500);
+  } else if (cursors.space.isDown){
+    this.scene.
+
+restart();
+  }
+}
+
