@@ -130,3 +130,120 @@ restart();
   }
 }
 
+QUIZ
+
+Question 1
+Given the following tween (and this referring to the Scene object), will codey return back to its original position?
+Code
+
+const codey = this.add.sprite(100, 100, 'codey')
+
+this.tweens.add({
+  targets: codey,
+  x: 500,
+  y: 1000,
+  ease: 'Linear',
+  duration: 3000,
+  yoyo: true
+});
+  Yes, since yoyo is set to true.
+  Since yoyo is set to true, after the tween finishes play, codey will return back to the coordinates (100, 100). 
+
+Question 2
+What is the importance of calling setting a sprite’s flipX property to true? 
+  Assigning a sprite's flipX property to true will flip it horizontally which allows the sprite to trun and continue animating.
+  This means we only need half a sprite sheet to animate a sprite moving left or right. 
+
+Question 3
+If we have a sprite sheet that is 600 pixels wide and 50 pixels tall and contains 6 frames, how do we load this sprite sheet into our game? 
+  this.load.spritesheet('spriteKey', 'spriteSheet.png', {frameWidth: 100, frameHeight: 50});
+  It should have a frameHeight of 50 pixels and setting a frameWidth of 100 pixels will produce the 6 frames of the sprite sheet.
+  
+Question 4
+Fill in the code to create a tween that: goes to the x-coordinate of 500, goes to the y-coordinate of 120, plays continuously, and does NOT return to its original state.
+Code
+
+this.tweens.add({
+  targets: gameState.spriteOrCola,
+  x: 500,
+  y: 120
+  ease: 'Linear',
+  duration: 3000,
+  repeat: -1,
+  yoyo: false
+});
+
+Question 5
+What happens when exampleSprite.anims.pause() is called?
+  Only exampleSprite's animation is paused.
+  we're calling .pause on a single animation.
+
+Question 6
+Fill in the code to create a tween that logs 'Hi!' to the console every time the tween repeats.
+Code
+
+this.tweens.add({
+  target: gameState.exampleSprite,
+  x: 300,
+  ease: 'Linear',
+  duration: 3000,
+  repeat: -1,
+  yoyo: true,
+  
+
+onRepeat: function() {
+    console.log('Hi!')
+  }
+});
+
+Question 6
+Fill in the code to create an animation that continously plays at 10 frames per second:
+Code
+
+gameState.heroSprite = this.physics.add.sprite(0, 500, 'hero');
+
+this.anims.create({
+  key: '
+
+run',
+  frames: this.anims.generateFrameNumbers('
+
+hero', { start: 0, end: 5 }),
+  frameRate: 
+
+10,
+  repeat: 
+
+-1
+});
+
+
+Question 8
+What is the correct sequence to animating a sprite?
+  Load in the sprite sheet -> Create the sprite object -> Create the animation -> Play the animation
+
+Question 9
+How do we play the following animation?
+Code
+
+gameState.exampleSprite = this.add.sprite(500, 415, 'spriteKey')
+
+this.anims.create({
+  key: 'animKey',
+  frames: this.anims.generateFrameNames('spriteKey', { start: 0 , end: 5}),
+  delay: 0,
+  frameRate: 25,
+  repeat: -1
+})
+  gameState.exampleSprite.anims.play('animKey');
+  To play the animation we need to call .anims.play() with the animation’s key. 
+
+Question 10
+What would be a reason for using a sprite sheet instead of a static image?
+  A sprite sheet allows us to animate the sprite and show moevement.
+
+
+
+
+
+QUIZ
