@@ -247,3 +247,31 @@ What would be a reason for using a sprite sheet instead of a static image?
 
 
 QUIZ
+
+Question 1
+How do you update a Camera's bounds?
+  .setBounds() will update the bounds of the camera.
+
+Question 2
+What does the force argument do in this.cameras.main.fade() and this.cameras.main.shake()?
+  Restarts the effect if it is already happening.
+  It begins the effect again.
+
+Question 3
+Which of the following commands will shake the camera?
+  this.cameras.main.shake();
+  Use .shake() to perform camera shake.
+
+Question 4
+What are the arguments to this.cameras.main.shake()?
+  duration, intensity, force, callback, and context
+  Those are the five arguments for the shake effect.
+
+Question 5
+Which of the following functions will fade the camera out?
+ this.cameras.main.fade();
+ Calling .fade() will fade the camera to a specific color!
+
+Question 6
+What is parallax scrolling?
+  A visual tool involving scolling different backgroun images faster or slower, create a distance effect.
