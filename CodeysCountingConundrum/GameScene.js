@@ -27,8 +27,35 @@ class GameScene extends Phaser.Scene {
         currentCircle.setInteractive();
   
         // Add the code for tweens below:
-              
-        
+              this.tweens.add({
+          targets: currentCircle,
+          paused: false,
+          completeDelay: 3000,
+          onComplete: function() {
+            currentCircle.fillAlpha = 1;
+            gameState.textAlert.setText("");
+            gameState.score.setText(` Correct: ${gameState.correct}\nIncorrect: ${gameState.incorrect}`);
+            currentCircle.on('pointerup', () => {
+              if (gameState.counter === currentCircle.number) {
+                gameState.counter++;
+                gameState.correct++;
+                currentCircle.destroy();
+              } else {
+                gameState.incorrect++;
+                currentCircle.wrongTween.restart();
+              }
+              gameState.score.setText(`  Correct: ${gameState.correct}\nIncorrect: ${gameState.incorrect}`);
+            });
+          }
+        });
+        currentCircle.wrongTween = this.tweens.add({
+          targets: currentCircle,
+          paused: true,
+          scaleX: 1.5,
+          scaleY: 1.5,
+          yoyo: true,
+          duration: 150
+        });
         
       }
   
