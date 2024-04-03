@@ -1,6 +1,42 @@
 QUIZ
 
 Question 1
+What will the following code print to the console?
+Code
+
+let num = 10;
+num *= 3;
+console.log(num); 
+  30
+  *= will multiply the num by 3 and then reassign the value of num to that result.
+
+Question 2
+What is string interpolation?
+  Using template literals to embed variables into strings.
+  String interpolation is when we insert, or interpolate, variables into strings using template literals.
+
+Question 3
+What is the correct way to declare a new variable that you can change?
+  let myName = 'Sloan';
+  let is used to declare variables that can be changed.
+
+Question 4
+What are variables used for in JavaScript?
+  For storing or holding data
+  Variables hold data.
+
+Question 5
+Which of the following code snippets would cause an error?
+  const food = 'chicken';
+  food = 'sushi';
+  const variables cannot be changed after they’re created.
+
+
+
+
+QUIZ
+
+Question 1
 What command makes a new Phaser Game?
     new Phaser.Game()
     We call Phaser.Game() with new in order to create a new instance.
